@@ -1,5 +1,6 @@
 grammar Program;
 
+
 STRUCT :  'struct' ;
 TRUE :    'true' ;
 FALSE :   'false' ;
@@ -57,7 +58,7 @@ varType
 
 
 methodDeclaration
-	:	methodType ID '(' (parameter | (parameter (',' parameter)*)*) ')' block     #methodDecl
+	:	methodType ID '(' (parameter |( parameter (',' parameter)*))? ')' block     #methodDecl
 	;
 
 	
