@@ -2,71 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4ac429c-e77d-4550-af7d-8b03d4f218f6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/PROYECTO 0.iml" afterPath="$PROJECT_DIR$/PROYECTO 0.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/Program.g4" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/Program.g4" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/Program.interp" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/Program.interp" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramBaseListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramLexer.interp" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramLexer.interp" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramListener.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprMinusPlusOpContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprMinusPlusOpContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprMultExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AddExprMultExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprCondOpAndContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprCondOpAndContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprEqExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$AndExprEqExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ArgContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ArgContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$BlockContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$BlockContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Boolean_literalContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Boolean_literalContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Char_literalContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Char_literalContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Cond_op_andContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Cond_op_andContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Cond_op_orContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Cond_op_orContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprEqOpContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprEqOpContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprRelationExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$EqExprRelationExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Eq_opContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Eq_opContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ExpressionContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Int_literalContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Int_literalContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$LiteralContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$LiteralContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$LocationContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$LocationContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MethodCallContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MethodCallContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MethodTypeContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MethodTypeContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Minusplus_opContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Minusplus_opContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprMultDivOpContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprMultDivOpContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprUnaryContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$MultExprUnaryContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Multdiv_opContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Multdiv_opContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterArrayContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterArrayContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterIDContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterIDContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterTypeContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ParameterTypeContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Powmod_opContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Powmod_opContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Rel_opContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$Rel_opContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$RelationExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$RelationExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatemElseContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatemElseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementBlockContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementBlockContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementElseContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementElseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementExpressionContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementIFContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementIFContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementLocationContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementLocationContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementMethodCallContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementMethodCallContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementReturnContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementReturnContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementWhileContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$StatementWhileContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$UnaryExprContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$UnaryExprContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueExprWithParentContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueExprWithParentContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueLiteralContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueLiteralContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueLocationContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueLocationContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueMethodCallContext.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser$ValueMethodCallContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser.class" afterPath="$PROJECT_DIR$/out/production/PROYECTO 0/generateClass/ProgramParser.class" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/Program.g4" afterPath="$PROJECT_DIR$/src/generateClass/Program.g4" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/Program.interp" afterPath="$PROJECT_DIR$/src/generateClass/Program.interp" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/ProgramBaseListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/ProgramLexer.interp" afterPath="$PROJECT_DIR$/src/generateClass/ProgramLexer.interp" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/ProgramListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/generateClass/ProgramParser.java" afterPath="$PROJECT_DIR$/src/generateClass/ProgramParser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,22 +24,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EvalVisitor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EvalVisitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/clasesPrinciales/EvalVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Objeto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/clasesPrinciales/Objeto.java">
+      <file leaf-file-name="Program.g4" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/generateClass/Program.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+            <state relative-caret-position="1190">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdePrincipal.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/window/IdePrincipal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="84" column="19" lean-forward="false" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +70,7 @@
       <find>call</find>
       <find>txterr</find>
       <find>met</find>
+      <find>comp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,9 +106,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="720" />
-    <option name="width" value="653" />
-    <option name="height" value="735" />
+    <option name="x" value="-93" />
+    <option name="y" value="-15" />
+    <option name="width" value="1380" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -176,10 +126,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,14 +147,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="clasesPrinciales" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="compilador-DECAF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compilador-DECAF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="window" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../BASES DE DATOS/el_proyecto/PROYECTO_1_DB" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -370,12 +326,25 @@
       <workItem from="1521162288047" duration="948000" />
       <workItem from="1521476872275" duration="3065000" />
       <workItem from="1521560592897" duration="309000" />
-      <workItem from="1521560914763" duration="4680000" />
+      <workItem from="1521560914763" duration="4762000" />
+      <workItem from="1522168314652" duration="645000" />
+      <workItem from="1522175011257" duration="50000" />
+      <workItem from="1522262722342" duration="666000" />
+      <workItem from="1522462545022" duration="7479000" />
+      <workItem from="1523142477275" duration="4000" />
     </task>
+    <task id="LOCAL-00001" summary="grammar updated">
+      <created>1521573747017</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521573747017</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61976000" />
+    <option name="totallyTimeSpent" value="70902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
@@ -384,14 +353,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32605305" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25117004" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25117004" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -402,12 +370,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32605305" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -455,6 +424,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="grammar updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="grammar updated" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
@@ -466,7 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -474,7 +446,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3927">
           <caret line="187" column="8" lean-forward="false" selection-start-line="187" selection-start-column="8" selection-end-line="187" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -503,7 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -511,7 +484,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2226">
           <caret line="106" column="54" lean-forward="false" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -607,7 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,55 +589,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19176">
           <caret line="1250" column="44" lean-forward="true" selection-start-line="1250" selection-start-column="44" selection-end-line="1250" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/window/IdePrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramBaseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramBaseVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/generateClass/Program.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/src/clasesPrinciales/Objeto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,11 +608,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/clasesPrinciales/EvalVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generateClass/ProgramBaseVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clasesPrinciales/EvalVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generateClass/Program.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/window/IdePrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="84" column="19" lean-forward="false" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
