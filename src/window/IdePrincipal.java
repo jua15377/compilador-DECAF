@@ -1,5 +1,6 @@
 package window;
 
+import clasesPrinciales.EvalVisitor;
 import com.sun.deploy.panel.JSmartTextArea;
 import org.antlr.v4.runtime.misc.Utils;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -89,6 +90,17 @@ public class IdePrincipal {
                 parser.addErrorListener(new CustomErrorListener()); // add ours
                 ParseTree tree = parser.program();
 
+                //haciendo el parseo por medio del visitor
+                EvalVisitor eval = new EvalVisitor();
+                eval.visit(tree);
+                eval.haveMain();
+                //imprimiendo errores de parseo
+                if (eval.getErrorsMsg().equals("")) {
+                    txtErrores.setText("Compilado Exitoso!");
+                } else {
+                    txtErrores.setText(eval.getErrorsMsg());
+                }
+
 
                 //mostrar arboles en Jtree
                 panelForJtree.removeAll();
@@ -104,9 +116,10 @@ public class IdePrincipal {
                         parser.getRuleNames()),tree);
                 panelImagen.add(viewr);
                 // show errors
-
                 String textoDeErrores = CustomErrorListener.buf.toString();
-                txtErrores.setText(textoDeErrores);
+                if(!textoDeErrores.equals("")) {
+                    txtErrores.setText(textoDeErrores);
+                }
             }
         });
 
@@ -201,7 +214,7 @@ public class IdePrincipal {
             List<String> stack = ((Parser)recognizer).getRuleInvocationStack();
             Collections.reverse(stack);
 
-            buf.append("rule stack: "+stack+" ");
+            buf.append("En regla: "+stack+" ");
             buf.append("Linea "+line+":"+charPositionInLine+" en "+
                     offendingSymbol+": "+msg +"\n");
 

@@ -48,12 +48,12 @@ structDeclaration
 	;
 
 varType                                         
-	: 	INT				
-	|	CHAR				
-	|	BOOLEAN				
-	|	STRUCT ID			
-	|	structDeclaration              
-	| 	VOID	
+	: 	INT				                    #vartypeInt
+	|	CHAR				                #vartypeChar
+	|	BOOLEAN				                #vartypeBoolean
+	|	STRUCT ID			                #vartypestrucID
+	|	structDeclaration                   #vartypestruc
+	| 	VOID	                            #vartypeVoid
 	;
 
 
@@ -63,10 +63,10 @@ methodDeclaration
 
 	
 methodType
-	:	INT				
-	|	CHAR				
-	|	BOOLEAN				
-	|	VOID				
+	:	INT				                #methodTypeInt
+	|	CHAR				            #methodTypeChar
+	|	BOOLEAN				            #methodTypeBoolean
+	|	VOID				            #methodTypeIntVoid
 	;
 
 parameter
@@ -75,9 +75,9 @@ parameter
 	;
 	
 parameterType
-	:	INT				
-	|	CHAR				
-	|	BOOLEAN				
+	:	INT				    #parameterTypeInt
+	|	CHAR				#parameterTypeChar
+	|	BOOLEAN				#parameterTypeBoolean
 	;
 	
 
@@ -107,8 +107,8 @@ location
 
 
 expression 
-	:	andExpr				
-	| 	expression cond_op_or andExpr  	
+	:	andExpr
+	| 	expression cond_op_or andExpr
 	;
 
 
@@ -156,7 +156,7 @@ value
 
 	
 methodCall
-	:	ID '(' (arg (',' arg)*)? ')' 
+	:	ID '(' (arg (',' arg)*)? ')' #methodCalldecl
 	;
 	
 arg

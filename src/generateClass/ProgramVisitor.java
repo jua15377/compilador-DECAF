@@ -60,11 +60,47 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDeclarationStruct(ProgramParser.DeclarationStructContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#varType}.
+	 * Visit a parse tree produced by the {@code vartypeInt}
+	 * labeled alternative in {@link ProgramParser#varType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVarType(ProgramParser.VarTypeContext ctx);
+	T visitVartypeInt(ProgramParser.VartypeIntContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code vartypeChar}
+	 * labeled alternative in {@link ProgramParser#varType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVartypeChar(ProgramParser.VartypeCharContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code vartypeBoolean}
+	 * labeled alternative in {@link ProgramParser#varType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVartypeBoolean(ProgramParser.VartypeBooleanContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code vartypestrucID}
+	 * labeled alternative in {@link ProgramParser#varType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVartypestrucID(ProgramParser.VartypestrucIDContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code vartypestruc}
+	 * labeled alternative in {@link ProgramParser#varType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVartypestruc(ProgramParser.VartypestrucContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code vartypeVoid}
+	 * labeled alternative in {@link ProgramParser#varType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVartypeVoid(ProgramParser.VartypeVoidContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code methodDecl}
 	 * labeled alternative in {@link ProgramParser#methodDeclaration}.
@@ -73,11 +109,33 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMethodDecl(ProgramParser.MethodDeclContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#methodType}.
+	 * Visit a parse tree produced by the {@code methodTypeInt}
+	 * labeled alternative in {@link ProgramParser#methodType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethodType(ProgramParser.MethodTypeContext ctx);
+	T visitMethodTypeInt(ProgramParser.MethodTypeIntContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code methodTypeChar}
+	 * labeled alternative in {@link ProgramParser#methodType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodTypeChar(ProgramParser.MethodTypeCharContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code methodTypeBoolean}
+	 * labeled alternative in {@link ProgramParser#methodType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodTypeBoolean(ProgramParser.MethodTypeBooleanContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code methodTypeIntVoid}
+	 * labeled alternative in {@link ProgramParser#methodType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodTypeIntVoid(ProgramParser.MethodTypeIntVoidContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code parameterID}
 	 * labeled alternative in {@link ProgramParser#parameter}.
@@ -93,11 +151,26 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParameterArray(ProgramParser.ParameterArrayContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#parameterType}.
+	 * Visit a parse tree produced by the {@code parameterTypeInt}
+	 * labeled alternative in {@link ProgramParser#parameterType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParameterType(ProgramParser.ParameterTypeContext ctx);
+	T visitParameterTypeInt(ProgramParser.ParameterTypeIntContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code parameterTypeChar}
+	 * labeled alternative in {@link ProgramParser#parameterType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameterTypeChar(ProgramParser.ParameterTypeCharContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code parameterTypeBoolean}
+	 * labeled alternative in {@link ProgramParser#parameterType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameterTypeBoolean(ProgramParser.ParameterTypeBooleanContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ProgramParser#block}.
 	 * @param ctx the parse tree
@@ -269,11 +342,12 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValueExprWithParent(ProgramParser.ValueExprWithParentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#methodCall}.
+	 * Visit a parse tree produced by the {@code methodCalldecl}
+	 * labeled alternative in {@link ProgramParser#methodCall}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethodCall(ProgramParser.MethodCallContext ctx);
+	T visitMethodCalldecl(ProgramParser.MethodCalldeclContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ProgramParser#arg}.
 	 * @param ctx the parse tree

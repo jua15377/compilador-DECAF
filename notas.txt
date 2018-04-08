@@ -1,0 +1,5 @@
+//codificacion tentativa
+int 0
+char 1
+boolean 2
+struct 3
