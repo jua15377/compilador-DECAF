@@ -14,7 +14,7 @@ CHAR :    'char' ;
 BOOLEAN : 'boolean' ;
 
 fragment LETTER : ('a'..'z'|'A'..'Z') ;
-fragment DIGIT :'0'..'9' ;
+fragment DIGIT : '-'?'0'..'9' ;
 
 
 ID : LETTER ( LETTER | DIGIT )* ;

@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
+
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
@@ -199,6 +200,8 @@ public class IdePrincipal {
         txtErrores.setEditable(false);
         panelImagen = new JPanel();
         panelForJtree = new JPanel();
+        TextLineNumber ln = new TextLineNumber(taEditor);
+        scr_Editor.setRowHeaderView(ln);
     }
 
     // tomada del libro definitive guide for antlv4  capitulo 9
