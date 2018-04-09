@@ -89,7 +89,7 @@ public class IdePrincipal {
                 //para errores
                 parser.removeErrorListeners(); // remove ConsoleErrorListener
                 parser.addErrorListener(new CustomErrorListener()); // add ours
-                ParseTree tree = parser.program();
+                ParseTree tree = parser.proram();
 
                 //haciendo el parseo por medio del visitor
                 EvalVisitor eval = new EvalVisitor();

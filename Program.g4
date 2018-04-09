@@ -18,8 +18,8 @@ fragment DIGIT : '-'?'0'..'9' ;
 
 
 ID : LETTER ( LETTER | DIGIT )* ;
-NUM : DIGIT ( DIGIT )* ;
-Char : LETTER;
+NUM : '-'?DIGIT ( DIGIT )* ;
+Char : '\''LETTER'\'';
 
 
 WS : 
@@ -27,7 +27,7 @@ WS :
     ;
 
 
-program
+proram
 	: 'class' ID '{' (declaration)* '}'				#progDeclarattion
 	;
 
@@ -205,7 +205,7 @@ int_literal
 	;
 
 char_literal
-	:	Char 
+	:	Char
 	;
 	
 boolean_literal
