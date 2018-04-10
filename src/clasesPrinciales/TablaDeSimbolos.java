@@ -19,6 +19,7 @@ public class TablaDeSimbolos {
 
     public void saveCurrentState(){
         stack.push(tabla);
+        tabla = new Hashtable<>();
     }
 
     public void retunToOlderState(){

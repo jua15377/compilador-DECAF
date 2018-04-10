@@ -1,4 +1,4 @@
-// Generated from C:/Users/Alejandro-PC/Documents/UVG 2018/COMPILADORES/EL PROYECTO/compilador-DECAF\Program.g4 by ANTLR 4.7
+// Generated from Program.g4 by ANTLR 4.7.1
 package generateClass;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -172,11 +172,12 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParameterTypeBoolean(ProgramParser.ParameterTypeBooleanContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#block}.
+	 * Visit a parse tree produced by the {@code blockDeclaration}
+	 * labeled alternative in {@link ProgramParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlock(ProgramParser.BlockContext ctx);
+	T visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code statementIF}
 	 * labeled alternative in {@link ProgramParser#statement}.

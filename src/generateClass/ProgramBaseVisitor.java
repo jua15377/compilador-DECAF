@@ -1,4 +1,4 @@
-// Generated from C:/Users/Alejandro-PC/Documents/UVG 2018/COMPILADORES/EL PROYECTO/compilador-DECAF\Program.g4 by ANTLR 4.7
+// Generated from Program.g4 by ANTLR 4.7.1
 package generateClass;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -178,7 +178,7 @@ public class ProgramBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBlock(ProgramParser.BlockContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -17,10 +17,15 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         String tipo = ctx.varType().getText();
         String nombre = ctx.ID().getText();
         Simbolo s = new Simbolo(nombre,tipo,ambitoActual);
-        //verifica que no se haya declarado con antelacion la variable
-        if(laTabla.getTabla().containsKey(nombre)){
+        //verifica que no se haya declarado con antelacion la variable con el mismo nombre
+        if(laTabla.getTabla().containsKey(s.getNombre())){
+            //si tuviese el mismo ambito
             if (laTabla.getTabla().get(nombre).getAmbito() == s.getAmbito()){
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+ ". \""+ctx.ID().getText()+"\" Ya existe en este ambito.\n";
+            }
+            else {
+                laTabla.addSimbol(s);
+
             }
         }
         else {
@@ -37,7 +42,8 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         int canParam = ctx.parameter().size();
         Simbolo s = new Simbolo(id,returnValue,ambitoActual,canParam);
 
-        if(laTabla.getTabla().containsKey(id)){
+        if(laTabla.getTabla().contains(s)){
+            //no metodo main duplicado
             if (laTabla.getTabla().get(id).getNombre().equals("main")){
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+ ". Solo puede existir un meotodo: \""+ ctx.ID().getText()+"\"\n";
             }
@@ -46,6 +52,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             }
         }
         else {
+            //revisa condiciones del Main;
             if (s.getNombre().equals("main")){
                 if(!s.getTipoDeRetorno().equals("void"))
                     errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+
@@ -99,6 +106,36 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             }
         }
         return super.visitArrayVarType(ctx);
+    }
+
+    @Override
+    public String visitStatementLocation(ProgramParser.StatementLocationContext ctx) {
+        //para nombres de varibales
+        if(ctx.getChildCount() == 1){
+            String id = ctx.location().getText();
+            String valor = ctx.expression().getText();
+            //verificar que exista el simbolo en la tabla actual, y sea variables
+            if(laTabla.getTabla().containsKey(id)){
+                laTabla.getTabla().get(id).setValor(valor);
+            }
+            //verificar en las variables globales
+            //de lo contrario error
+            else {
+                errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                        ". \""+ctx.ID().getText()+"\" No puede tener un indice negativo\n";-
+            }
+        }
+        return super.visitStatementLocation(ctx);
+    }
+
+    @Override
+    public String visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx) {
+        ambitoActual ++;
+        laTabla.saveCurrentState();
+        visitChildren(ctx);
+        laTabla.retunToOlderState();
+        ambitoActual --;
+        return null;
     }
 
     @Override

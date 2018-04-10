@@ -85,7 +85,7 @@ Char
 WS
 
 rule names:
-program
+proram
 declaration
 varDeclaration
 structDeclaration

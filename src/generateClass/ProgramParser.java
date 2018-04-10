@@ -1,4 +1,4 @@
-// Generated from C:/Users/Alejandro-PC/Documents/UVG 2018/COMPILADORES/EL PROYECTO/compilador-DECAF\Program.g4 by ANTLR 4.7
+// Generated from Program.g4 by ANTLR 4.7.1
 package generateClass;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class ProgramParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -124,14 +124,6 @@ public class ProgramParser extends Parser {
 		}
 		public ProgDeclarattionContext(ProramContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterProgDeclarattion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitProgDeclarattion(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitProgDeclarattion(this);
 			else return visitor.visitChildren(this);
@@ -198,14 +190,6 @@ public class ProgramParser extends Parser {
 		}
 		public AVarDecContext(DeclarationContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAVarDec(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAVarDec(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAVarDec(this);
 			else return visitor.visitChildren(this);
@@ -217,14 +201,6 @@ public class ProgramParser extends Parser {
 		}
 		public AMethodDecContext(DeclarationContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAMethodDec(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAMethodDec(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAMethodDec(this);
 			else return visitor.visitChildren(this);
@@ -235,14 +211,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(StructDeclarationContext.class,0);
 		}
 		public AStructDecContext(DeclarationContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAStructDec(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAStructDec(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAStructDec(this);
@@ -312,14 +280,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode ID() { return getToken(ProgramParser.ID, 0); }
 		public SimpleVarTyoeContext(VarDeclarationContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterSimpleVarTyoe(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitSimpleVarTyoe(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitSimpleVarTyoe(this);
 			else return visitor.visitChildren(this);
@@ -332,14 +292,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode ID() { return getToken(ProgramParser.ID, 0); }
 		public TerminalNode NUM() { return getToken(ProgramParser.NUM, 0); }
 		public ArrayVarTypeContext(VarDeclarationContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterArrayVarType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitArrayVarType(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitArrayVarType(this);
@@ -419,14 +371,6 @@ public class ProgramParser extends Parser {
 		}
 		public DeclarationStructContext(StructDeclarationContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterDeclarationStruct(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitDeclarationStruct(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitDeclarationStruct(this);
 			else return visitor.visitChildren(this);
@@ -493,14 +437,6 @@ public class ProgramParser extends Parser {
 		}
 		public VartypestrucContext(VarTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypestruc(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypestruc(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypestruc(this);
 			else return visitor.visitChildren(this);
@@ -509,14 +445,6 @@ public class ProgramParser extends Parser {
 	public static class VartypeCharContext extends VarTypeContext {
 		public TerminalNode CHAR() { return getToken(ProgramParser.CHAR, 0); }
 		public VartypeCharContext(VarTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypeChar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypeChar(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypeChar(this);
@@ -527,14 +455,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode BOOLEAN() { return getToken(ProgramParser.BOOLEAN, 0); }
 		public VartypeBooleanContext(VarTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypeBoolean(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypeBoolean(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypeBoolean(this);
 			else return visitor.visitChildren(this);
@@ -543,14 +463,6 @@ public class ProgramParser extends Parser {
 	public static class VartypeIntContext extends VarTypeContext {
 		public TerminalNode INT() { return getToken(ProgramParser.INT, 0); }
 		public VartypeIntContext(VarTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypeInt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypeInt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypeInt(this);
@@ -561,14 +473,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode VOID() { return getToken(ProgramParser.VOID, 0); }
 		public VartypeVoidContext(VarTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypeVoid(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypeVoid(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypeVoid(this);
 			else return visitor.visitChildren(this);
@@ -578,14 +482,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode STRUCT() { return getToken(ProgramParser.STRUCT, 0); }
 		public TerminalNode ID() { return getToken(ProgramParser.ID, 0); }
 		public VartypestrucIDContext(VarTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterVartypestrucID(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitVartypestrucID(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitVartypestrucID(this);
@@ -690,14 +586,6 @@ public class ProgramParser extends Parser {
 		}
 		public MethodDeclContext(MethodDeclarationContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodDecl(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodDecl(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodDecl(this);
 			else return visitor.visitChildren(this);
@@ -784,14 +672,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode VOID() { return getToken(ProgramParser.VOID, 0); }
 		public MethodTypeIntVoidContext(MethodTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodTypeIntVoid(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodTypeIntVoid(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodTypeIntVoid(this);
 			else return visitor.visitChildren(this);
@@ -800,14 +680,6 @@ public class ProgramParser extends Parser {
 	public static class MethodTypeIntContext extends MethodTypeContext {
 		public TerminalNode INT() { return getToken(ProgramParser.INT, 0); }
 		public MethodTypeIntContext(MethodTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodTypeInt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodTypeInt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodTypeInt(this);
@@ -818,14 +690,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode BOOLEAN() { return getToken(ProgramParser.BOOLEAN, 0); }
 		public MethodTypeBooleanContext(MethodTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodTypeBoolean(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodTypeBoolean(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodTypeBoolean(this);
 			else return visitor.visitChildren(this);
@@ -834,14 +698,6 @@ public class ProgramParser extends Parser {
 	public static class MethodTypeCharContext extends MethodTypeContext {
 		public TerminalNode CHAR() { return getToken(ProgramParser.CHAR, 0); }
 		public MethodTypeCharContext(MethodTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodTypeChar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodTypeChar(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodTypeChar(this);
@@ -921,14 +777,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode ID() { return getToken(ProgramParser.ID, 0); }
 		public ParameterIDContext(ParameterContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterParameterID(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitParameterID(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitParameterID(this);
 			else return visitor.visitChildren(this);
@@ -941,14 +789,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode ID() { return getToken(ProgramParser.ID, 0); }
 		public TerminalNode NUM() { return getToken(ProgramParser.NUM, 0); }
 		public ParameterArrayContext(ParameterContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterParameterArray(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitParameterArray(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitParameterArray(this);
@@ -1017,14 +857,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode CHAR() { return getToken(ProgramParser.CHAR, 0); }
 		public ParameterTypeCharContext(ParameterTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterParameterTypeChar(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitParameterTypeChar(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitParameterTypeChar(this);
 			else return visitor.visitChildren(this);
@@ -1034,14 +866,6 @@ public class ProgramParser extends Parser {
 		public TerminalNode BOOLEAN() { return getToken(ProgramParser.BOOLEAN, 0); }
 		public ParameterTypeBooleanContext(ParameterTypeContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterParameterTypeBoolean(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitParameterTypeBoolean(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitParameterTypeBoolean(this);
 			else return visitor.visitChildren(this);
@@ -1050,14 +874,6 @@ public class ProgramParser extends Parser {
 	public static class ParameterTypeIntContext extends ParameterTypeContext {
 		public TerminalNode INT() { return getToken(ProgramParser.INT, 0); }
 		public ParameterTypeIntContext(ParameterTypeContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterParameterTypeInt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitParameterTypeInt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitParameterTypeInt(this);
@@ -1112,6 +928,17 @@ public class ProgramParser extends Parser {
 	}
 
 	public static class BlockContext extends ParserRuleContext {
+		public BlockContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_block; }
+	 
+		public BlockContext() { }
+		public void copyFrom(BlockContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class BlockDeclarationContext extends BlockContext {
 		public List<VarDeclarationContext> varDeclaration() {
 			return getRuleContexts(VarDeclarationContext.class);
 		}
@@ -1124,21 +951,10 @@ public class ProgramParser extends Parser {
 		public StatementContext statement(int i) {
 			return getRuleContext(StatementContext.class,i);
 		}
-		public BlockContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_block; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterBlock(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitBlock(this);
-		}
+		public BlockDeclarationContext(BlockContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitBlock(this);
+			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitBlockDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1148,6 +964,7 @@ public class ProgramParser extends Parser {
 		enterRule(_localctx, 18, RULE_block);
 		int _la;
 		try {
+			_localctx = new BlockDeclarationContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(156);
@@ -1215,14 +1032,6 @@ public class ProgramParser extends Parser {
 		}
 		public StatementLocationContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementLocation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementLocation(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementLocation(this);
 			else return visitor.visitChildren(this);
@@ -1233,14 +1042,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public StatementReturnContext(StatementContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementReturn(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementReturn(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementReturn(this);
@@ -1253,14 +1054,6 @@ public class ProgramParser extends Parser {
 		}
 		public StatementBlockContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementBlock(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementBlock(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementBlock(this);
 			else return visitor.visitChildren(this);
@@ -1271,14 +1064,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public StatementExpressionContext(StatementContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementExpression(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementExpression(this);
@@ -1295,14 +1080,6 @@ public class ProgramParser extends Parser {
 		}
 		public StatementWhileContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementWhile(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementWhile(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementWhile(this);
 			else return visitor.visitChildren(this);
@@ -1313,14 +1090,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(MethodCallContext.class,0);
 		}
 		public StatementMethodCallContext(StatementContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementMethodCall(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementMethodCall(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementMethodCall(this);
@@ -1338,14 +1107,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(StatementElseContext.class,0);
 		}
 		public StatementIFContext(StatementContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatementIF(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatementIF(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatementIF(this);
@@ -1518,14 +1279,6 @@ public class ProgramParser extends Parser {
 		}
 		public StatemElseContext(StatementElseContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterStatemElse(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitStatemElse(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitStatemElse(this);
 			else return visitor.visitChildren(this);
@@ -1568,14 +1321,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_location; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterLocation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitLocation(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLocation(this);
@@ -1646,14 +1391,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitExpression(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitExpression(this);
@@ -1741,14 +1478,6 @@ public class ProgramParser extends Parser {
 		}
 		public AndExprCondOpAndContext(AndExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAndExprCondOpAnd(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAndExprCondOpAnd(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAndExprCondOpAnd(this);
 			else return visitor.visitChildren(this);
@@ -1759,14 +1488,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(EqExprContext.class,0);
 		}
 		public AndExprEqExprContext(AndExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAndExprEqExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAndExprEqExpr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAndExprEqExpr(this);
@@ -1852,14 +1573,6 @@ public class ProgramParser extends Parser {
 		}
 		public EqExprRelationExprContext(EqExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterEqExprRelationExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitEqExprRelationExpr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitEqExprRelationExpr(this);
 			else return visitor.visitChildren(this);
@@ -1876,14 +1589,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(RelationExprContext.class,0);
 		}
 		public EqExprEqOpContext(EqExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterEqExprEqOp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitEqExprEqOp(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitEqExprEqOp(this);
@@ -1967,14 +1672,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_relationExpr; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterRelationExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitRelationExpr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitRelationExpr(this);
 			else return visitor.visitChildren(this);
@@ -2055,14 +1752,6 @@ public class ProgramParser extends Parser {
 		}
 		public AddExprMultExprContext(AddExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAddExprMultExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAddExprMultExpr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAddExprMultExpr(this);
 			else return visitor.visitChildren(this);
@@ -2079,14 +1768,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(MultExprContext.class,0);
 		}
 		public AddExprMinusPlusOpContext(AddExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterAddExprMinusPlusOp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitAddExprMinusPlusOp(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitAddExprMinusPlusOp(this);
@@ -2172,14 +1853,6 @@ public class ProgramParser extends Parser {
 		}
 		public MultExprUnaryContext(MultExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMultExprUnary(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMultExprUnary(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMultExprUnary(this);
 			else return visitor.visitChildren(this);
@@ -2196,14 +1869,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(UnaryExprContext.class,0);
 		}
 		public MultExprMultDivOpContext(MultExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMultExprMultDivOp(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMultExprMultDivOp(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMultExprMultDivOp(this);
@@ -2282,14 +1947,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unaryExpr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterUnaryExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitUnaryExpr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitUnaryExpr(this);
@@ -2381,14 +2038,6 @@ public class ProgramParser extends Parser {
 		}
 		public ValueMethodCallContext(ValueContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterValueMethodCall(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitValueMethodCall(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitValueMethodCall(this);
 			else return visitor.visitChildren(this);
@@ -2399,14 +2048,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(LiteralContext.class,0);
 		}
 		public ValueLiteralContext(ValueContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterValueLiteral(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitValueLiteral(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitValueLiteral(this);
@@ -2419,14 +2060,6 @@ public class ProgramParser extends Parser {
 		}
 		public ValueExprWithParentContext(ValueContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterValueExprWithParent(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitValueExprWithParent(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitValueExprWithParent(this);
 			else return visitor.visitChildren(this);
@@ -2437,14 +2070,6 @@ public class ProgramParser extends Parser {
 			return getRuleContext(LocationContext.class,0);
 		}
 		public ValueLocationContext(ValueContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterValueLocation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitValueLocation(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitValueLocation(this);
@@ -2529,14 +2154,6 @@ public class ProgramParser extends Parser {
 		}
 		public MethodCalldeclContext(MethodCallContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMethodCalldecl(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMethodCalldecl(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMethodCalldecl(this);
 			else return visitor.visitChildren(this);
@@ -2605,14 +2222,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_arg; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterArg(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitArg(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitArg(this);
 			else return visitor.visitChildren(this);
@@ -2645,14 +2254,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_minusplus_op; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMinusplus_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMinusplus_op(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMinusplus_op(this);
@@ -2696,14 +2297,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_multdiv_op; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterMultdiv_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitMultdiv_op(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitMultdiv_op(this);
 			else return visitor.visitChildren(this);
@@ -2746,14 +2339,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_powmod_op; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterPowmod_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitPowmod_op(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitPowmod_op(this);
 			else return visitor.visitChildren(this);
@@ -2786,14 +2371,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_rel_op; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterRel_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitRel_op(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitRel_op(this);
@@ -2837,14 +2414,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_eq_op; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterEq_op(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitEq_op(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitEq_op(this);
 			else return visitor.visitChildren(this);
@@ -2887,14 +2456,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_cond_op_or; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterCond_op_or(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitCond_op_or(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitCond_op_or(this);
 			else return visitor.visitChildren(this);
@@ -2927,14 +2488,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cond_op_and; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterCond_op_and(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitCond_op_and(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitCond_op_and(this);
@@ -2977,14 +2530,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_literal; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterLiteral(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitLiteral(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLiteral(this);
@@ -3043,14 +2588,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_int_literal; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterInt_literal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitInt_literal(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitInt_literal(this);
 			else return visitor.visitChildren(this);
@@ -3085,14 +2622,6 @@ public class ProgramParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_char_literal; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterChar_literal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitChar_literal(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitChar_literal(this);
 			else return visitor.visitChildren(this);
@@ -3125,14 +2654,6 @@ public class ProgramParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_boolean_literal; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).enterBoolean_literal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ProgramListener ) ((ProgramListener)listener).exitBoolean_literal(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitBoolean_literal(this);
