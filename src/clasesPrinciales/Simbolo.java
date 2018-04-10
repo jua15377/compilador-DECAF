@@ -51,46 +51,14 @@ public class Simbolo {
         this.sizeOnMem = 4;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Simbolo)) return false;
-
-        Simbolo simbolo = (Simbolo) o;
-
-        if (isMethot() != simbolo.isMethot()) return false;
-        if (isStruct() != simbolo.isStruct()) return false;
-        if (isVariable() != simbolo.isVariable()) return false;
-        if (isArray() != simbolo.isArray()) return false;
-        if (getSize() != simbolo.getSize()) return false;
-        if (getSizeOnMem() != simbolo.getSizeOnMem()) return false;
-        if (getAmbito() != simbolo.getAmbito()) return false;
-        if (getCantParam() != simbolo.getCantParam()) return false;
-        if (!getTipo().equals(simbolo.getTipo())) return false;
-        if (getValor() != null ? !getValor().equals(simbolo.getValor()) : simbolo.getValor() != null) return false;
-        if (!getNombre().equals(simbolo.getNombre())) return false;
-        if (!getTipoDeRetorno().equals(simbolo.getTipoDeRetorno())) return false;
-        return getParametros().equals(simbolo.getParametros());
+    //opra struct
+    public Simbolo(String nombre, ArrayList<Simbolo> atributos){
+        this.nombre = nombre;
+        this.parametros = atributos;
+        this.isStruct = true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getTipo().hashCode();
-        result = 31 * result + (getValor() != null ? getValor().hashCode() : 0);
-        result = 31 * result + getNombre().hashCode();
-        result = 31 * result + getTipoDeRetorno().hashCode();
-        result = 31 * result + (isMethot() ? 1 : 0);
-        result = 31 * result + (isStruct() ? 1 : 0);
-        result = 31 * result + (isVariable() ? 1 : 0);
-        result = 31 * result + (isArray() ? 1 : 0);
-        result = 31 * result + getSize();
-        result = 31 * result + getSizeOnMem();
-        result = 31 * result + getAmbito();
-        result = 31 * result + getCantParam();
-        result = 31 * result + getParametros().hashCode();
-        return result;
-    }
+
 
     public String getTipo() {
         return tipo;
