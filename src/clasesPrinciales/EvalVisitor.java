@@ -1,6 +1,8 @@
 package clasesPrinciales;
 import generateClass.*;
 
+import java.util.ArrayList;
+
 
 public class EvalVisitor extends ProgramBaseVisitor<String>  {
     private String errorsMsg = "";
@@ -10,6 +12,32 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     @Override
     public String visitProgDeclarattion(ProgramParser.ProgDeclarattionContext ctx) {
         return visitChildren(ctx);
+    }
+
+    @Override
+    public String visitDeclarationStruct(ProgramParser.DeclarationStructContext ctx) {
+        //se obtiene los valores de la struct
+        String id = ctx.ID().getText();
+        ArrayList<Simbolo> contendio = new ArrayList<>();
+        //se verifica si el estruc tiene contendio
+        int cantAtributos = ctx.varDeclaration().size();
+        if (cantAtributos>0){
+            for (int i = 0; i<cantAtributos; i++) {
+                //se obtiene el tipo y el valor de los
+                String tipo = ctx.varDeclaration(i).getChild(0).getText();
+                String name = ctx.varDeclaration(i).getChild(1).getText();
+                Simbolo s = new Simbolo(name,tipo);
+                contendio.add(s);
+            }
+        }
+        if(!laTabla.getTabla().containsKey(id)) {
+            laTabla.addSimbol(new Simbolo(id, contendio));
+        }
+        else {
+            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+ ". Ya existe un: \""+ctx.ID().getText()+"\"\n";
+        }
+
+        return super.visitDeclarationStruct(ctx);
     }
 
     @Override
@@ -42,13 +70,14 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         int canParam = ctx.parameter().size();
         Simbolo s = new Simbolo(id,returnValue,ambitoActual,canParam);
 
-        if(laTabla.getTabla().contains(s)){
+        if(laTabla.getTabla().containsKey(s.getNombre())){
             //no metodo main duplicado
             if (laTabla.getTabla().get(id).getNombre().equals("main")){
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+ ". Solo puede existir un meotodo: \""+ ctx.ID().getText()+"\"\n";
             }
-            else if (laTabla.getTabla().get(id).getAmbito() == s.getAmbito()){
-
+            else if(laTabla.getTabla().get(s.getNombre()).getTipoDeRetorno().equals(s.getTipoDeRetorno())){
+                errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                        ". El metodo : \""+ ctx.ID().getText()+"\"Ya existe\n";
             }
         }
         else {
@@ -66,6 +95,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                 }
             }
             else {
+                //guarda paramtros
                 if(s.getCantParam() != 0){
 
                     for(int i=0;i<canParam;i++){
@@ -110,21 +140,53 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitStatementLocation(ProgramParser.StatementLocationContext ctx) {
-        //para nombres de varibales
-        if(ctx.getChildCount() == 1){
+        //para nombres de varibales en el contexto actual
+        if(ctx.location().getChildCount() == 1){
             String id = ctx.location().getText();
             String valor = ctx.expression().getText();
             //verificar que exista el simbolo en la tabla actual, y sea variables
             if(laTabla.getTabla().containsKey(id)){
-                laTabla.getTabla().get(id).setValor(valor);
+                if(laTabla.getTabla().get(id).isVariable()) {
+                    String tipo = laTabla.getTabla().get(id).getTipo();
+                    if(tipo.equals("int")){
+                        try {
+                            int i = Integer.parseInt(valor);
+                            laTabla.getTabla().get(id).setValor(valor);
+                        }
+                        catch (Exception e){
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                    ". \""+ctx.location().getText()+"\"Es de tipo int\n";
+                        }
+                    }
+                    else if(tipo.equals("boolean")){
+                        if(valor.equals("true") || valor.equals("false")){
+                            laTabla.getTabla().get(id).setValor(valor);
+                        }
+                        else{
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                    ". \""+ctx.location().getText()+"\"Es de tipo boolean\n";
+                        }
+                    }
+                    else if(tipo.equals("char")){
+                        if(valor.contains("\'")){
+                            valor = valor.replace("\'","");
+                            laTabla.getTabla().get(id).setValor(valor);
+                        }
+                        else{
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                    ". \""+ctx.location().getText()+"\"Es de tipo char\n";
+                        }
+                    }
+                }
             }
             //verificar en las variables globales
             //de lo contrario error
             else {
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                        ". \""+id+"\" No puede tener un indice negativo\n";
+                        ". \""+ctx.location().getText()+"\" No se ha declarado la variable\n";
             }
         }
+        //revisar otras asignaaciones
         return super.visitStatementLocation(ctx);
     }
 
