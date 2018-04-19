@@ -122,11 +122,13 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             //de lo contrario error
             else {
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                        ". \""+ctx.ID().getText()+"\" No puede tener un indice negativo\n";-
+                        ". \""+id+"\" No puede tener un indice negativo\n";
             }
         }
         return super.visitStatementLocation(ctx);
     }
+
+
 
     @Override
     public String visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx) {

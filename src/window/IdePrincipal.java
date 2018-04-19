@@ -47,6 +47,7 @@ public class IdePrincipal {
     private JScrollPane scrllPaneImagenArbol;
     private JPanel panelImagen;
     private JPanel panelForJtree;
+    private JPanel pnl_intermedio;
     private String directorio;
 
     public IdePrincipal() {
