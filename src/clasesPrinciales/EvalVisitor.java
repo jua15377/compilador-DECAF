@@ -23,7 +23,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         int cantAtributos = ctx.varDeclaration().size();
         if (cantAtributos>0){
             for (int i = 0; i<cantAtributos; i++) {
-                //se obtiene el tipo y el valor de los 
+                //se obtiene el tipo y el valor de los
                 String tipo = ctx.varDeclaration(i).getChild(0).getText();
                 String name = ctx.varDeclaration(i).getChild(1).getText();
                 Simbolo s = new Simbolo(name,tipo);
