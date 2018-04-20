@@ -111,6 +111,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             }
 
         }
+
         return super.visitMethodDecl(ctx);
     }
 
@@ -140,13 +141,14 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitStatementLocation(ProgramParser.StatementLocationContext ctx) {
-        //para nombres de varibales en el contexto actual
+        //si es un declaracion estandar
         if(ctx.location().getChildCount() == 1){
             String id = ctx.location().getText();
             String valor = ctx.expression().getText();
             //verificar que exista el simbolo en la tabla actual, y sea variables
             if(laTabla.getTabla().containsKey(id)){
                 if(laTabla.getTabla().get(id).isVariable()) {
+                    //intenta convertir para determinar el tipo, si lo logra lo asigna.
                     String tipo = laTabla.getTabla().get(id).getTipo();
                     if(tipo.equals("int")){
                         try {
@@ -180,6 +182,38 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                 }
             }
             //verificar en las variables globales
+            else if(laTabla.existInGlobal(id)){
+                String  tipo =  laTabla.getFromGlobal(id).get(id).getTipo();
+                if(tipo.equals("int")){
+                    try {
+                        int i = Integer.parseInt(valor);
+                        laTabla.getFromGlobal(id).get(id).setValor(valor);
+                    }
+                    catch (Exception e){
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                ". \""+ctx.location().getText()+"\"Es de tipo int\n";
+                    }
+                }
+                else if(tipo.equals("boolean")){
+                    if(valor.equals("true") || valor.equals("false")){
+                        laTabla.getFromGlobal(id).get(id).setValor(valor);
+                    }
+                    else{
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                ". \""+ctx.location().getText()+"\"Es de tipo boolean\n";
+                    }
+                }
+                else if(tipo.equals("char")) {
+                    if (valor.contains("\'")) {
+                        valor = valor.replace("\'", "");
+                        laTabla.getFromGlobal(id).get(id).setValor(valor);
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". \"" + ctx.location().getText() + "\"Es de tipo char\n";
+                    }
+
+                }
+            }
             //de lo contrario error
             else {
                 errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+

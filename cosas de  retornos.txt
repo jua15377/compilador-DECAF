@@ -1,0 +1,15 @@
+class program{
+	int a;
+	void main(){
+		a = 1;
+		char b;
+		b = 'a';
+		a = 54;
+	}	
+	int cosa(){
+		return a;
+		return 5;
+		return true;
+		return 'a';
+	}
+}
