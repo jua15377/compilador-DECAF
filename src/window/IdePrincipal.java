@@ -14,7 +14,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -54,20 +56,41 @@ public class IdePrincipal {
         btnSeachGramatica.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 JFileChooser chooser = new JFileChooser();
                 chooser.setCurrentDirectory(new java.io.File("./src"));
-                chooser.setDialogTitle("Seleccione su archivo");
-                chooser.setFileFilter(new FileNameExtensionFilter("Grammar file (.g4)", "g4"));
-                int returnVal = chooser.showOpenDialog(null);
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    directorio = chooser.getSelectedFile().getAbsolutePath();
-                    txtDirectorio.setText(directorio);
-                    //permmite que se  pueda editar el text area
+                chooser.setDialogTitle("Seleccione la ubiccaccion para guardar");
+                chooser.setFileFilter(new FileNameExtensionFilter("Text File (.txt)", "txt"));
+
+                // Demonstrate "Save" dialog:
+                int rVal = chooser.showSaveDialog(null);
+                if (rVal == JFileChooser.APPROVE_OPTION) {
+                    FileWriter fichero = null;
+                    PrintWriter pw;
+                    try
+                    {
+                        fichero = new FileWriter(chooser.getSelectedFile().getName());
+                        pw = new PrintWriter(fichero);
+                        pw.println(taEditor.getText());
+                    }
+                    catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                    finally {
+                        txtDirectorio.setText(chooser.getSelectedFile().getName());
+                        try {
+                            // asegurarnos que se cierra el fichero.
+                            if (null != fichero)
+                                fichero.close();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                if (rVal == JFileChooser.CANCEL_OPTION) {
 
                 }
-                else {
-                    System.out.print("compilando");
-                }
+
             }
         });
         borrarTextoButton.addActionListener(new ActionListener() {
@@ -146,6 +169,7 @@ public class IdePrincipal {
                             taEditor.append("\n");
                         }
                         taEditor.setEnabled(true);
+                        txtDirectorio.setText(chooser.getSelectedFile().getName());
                     }
                     catch (IOException e1){
                         e1.printStackTrace();
