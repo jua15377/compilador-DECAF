@@ -82,7 +82,7 @@ parameterType
 	
 
 block
-	:	'{' (varDeclaration)*(statement)* '}'               #blockDeclaration
+	:	'{' (varDeclaration | statement)* '}'               #blockDeclaration
 	;
 
 statement
