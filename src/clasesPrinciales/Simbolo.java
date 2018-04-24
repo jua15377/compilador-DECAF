@@ -23,6 +23,14 @@ public class Simbolo {
         this.nombre  = nombre;
         this.tipo = tipo;
     }
+    //param array
+    public Simbolo(int size, String nombre, String tipo){
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.size = size;
+        isArray = true;
+    }
+
     //construtor variable
     public Simbolo(String nombre, String tipo, int ambito){
         this.nombre = nombre;

@@ -105,6 +105,10 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         String[] partes =  parametro.split("-");
                         String pType = partes[0];
                         String pId = partes[1];
+                        if (partes.length >2){
+                            int size = Integer.parseInt(partes[2]);
+                            s.addParameter(new Simbolo(size,pId, pType));
+                        }
                         s.addParameter(new Simbolo(pId,pType));
                     }
                 }
@@ -117,6 +121,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         return super.visitMethodDecl(ctx);
     }
 
+    /**
+     *visita para la creacion de una variable de tipo array
+     * @param ctx
+     * @return
+     */
     @Override
     public String visitArrayVarType(ProgramParser.ArrayVarTypeContext ctx) {
         String tipo = ctx.varType().getText();
@@ -231,12 +240,18 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     @Override
     public String visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx) {
         ambitoActual ++;
+
         Simbolo metodo = laTabla.getaSimbol(nameActualmethot);
         laTabla.saveCurrentState();
-        if(metodo.getCantParam()!=0) {
-            for (Simbolo s : metodo.getParametros()) {
-                laTabla.addSimbol(new Simbolo(s.getNombre(), s.getTipo(), ambitoActual));
+        try {
+            if (metodo.getCantParam() != 0 && metodo != null) {
+                for (Simbolo s : metodo.getParametros()) {
+                    laTabla.addSimbol(s);
+                }
             }
+        }
+        catch (Exception e){
+            System.out.println("statemen");
         }
         visitChildren(ctx);
         laTabla.retunToOlderState();
@@ -249,6 +264,16 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         String id = ctx.ID().getText();
         String tipo = ctx.parameterType().getText();
         return tipo + "-"+id;
+    }
+
+    @Override
+    public String visitParameterArray(ProgramParser.ParameterArrayContext ctx) {
+        String id = ctx.ID().getText();
+        String tipo = ctx.parameterType().getText();
+        String size = ctx.NUM().getText();
+
+        return tipo + '-' + id + '-' + size;
+
     }
 
     @Override
@@ -302,6 +327,13 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
              }
          }
         return super.visitStatementReturn(ctx);
+    }
+
+    @Override
+    public String visitStatementIF(ProgramParser.StatementIFContext ctx) {
+
+
+        return super.visitStatementIF(ctx);
     }
 
     public void haveMain() {
