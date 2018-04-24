@@ -93,6 +93,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                 }
                 else {
                     laTabla.addSimbol(s);
+                    nameActualmethot = s.getNombre();
                 }
             }
             else {
@@ -105,7 +106,6 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         String pType = partes[0];
                         String pId = partes[1];
                         s.addParameter(new Simbolo(pId,pType));
-
                     }
                 }
                 laTabla.addSimbol(s);
@@ -231,7 +231,13 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     @Override
     public String visitBlockDeclaration(ProgramParser.BlockDeclarationContext ctx) {
         ambitoActual ++;
+        Simbolo metodo = laTabla.getaSimbol(nameActualmethot);
         laTabla.saveCurrentState();
+        if(metodo.getCantParam()!=0) {
+            for (Simbolo s : metodo.getParametros()) {
+                laTabla.addSimbol(new Simbolo(s.getNombre(), s.getTipo(), ambitoActual));
+            }
+        }
         visitChildren(ctx);
         laTabla.retunToOlderState();
         ambitoActual --;
@@ -249,10 +255,13 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     public String visitStatementReturn(ProgramParser.StatementReturnContext ctx) {
          String loqueRetorna = ctx.expression().getText();
          System.out.println(loqueRetorna);
-
-
+        // el metodo no puede retornar
+        if (laTabla.getFromGlobal(nameActualmethot).get(nameActualmethot).getTipoDeRetorno().equals("void")) {
+            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                    ". \"" + nameActualmethot + "\" no puede devolver un valor\n";
+        }
          //retorno expresion
-         if(loqueRetorna.contains("+") || loqueRetorna.contains("-") || loqueRetorna.contains("*") || loqueRetorna.contains("/")){
+         else if(loqueRetorna.contains("+") || loqueRetorna.contains("-") || loqueRetorna.contains("*") || loqueRetorna.contains("/")){
 
          }
 //        // retorno char
@@ -261,7 +270,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
          }
          // retorna boolean
          else if(loqueRetorna.contains("true") ||  loqueRetorna.contains("false")){
-
+            System.out.println("retorno booble");
          }
          //retorna variable
         else {
@@ -272,17 +281,19 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
              }
              else{
                  //if  el metodo es void
-                 if (laTabla.getTabla().get(nameActualmethot).getTipoDeRetorno().equals("void")){
-                     if(!laTabla.getTabla().get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(nameActualmethot).getTipoDeRetorno())){
+                 if (laTabla.getFromGlobal(nameActualmethot).get(nameActualmethot).getTipoDeRetorno().equals("void")){
+                     errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                             ". \""+nameActualmethot+"\" no puede devolver un valor\n";
+                     /*if(!laTabla.getTabla().get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(nameActualmethot).getTipoDeRetorno())){
                          errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                                  ". \""+nameActualmethot+"\" no puede devolver un valor\n";
-                     }
+                     }*/
                  }
 
                  // verifica que lo que retorna sea variable
-                 if (laTabla.getTabla().get(loqueRetorna).isVariable()){
-                     // verifica que el tipo de la variable sea igual al del metodo
-                     if(!laTabla.getTabla().get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(nameActualmethot).getTipoDeRetorno())){
+                 else if (laTabla.getTabla().get(loqueRetorna).isVariable()){
+                     // verifica que el tipo del metodo declarado sea igual al tipo de la varible
+                     if(!laTabla.getFromGlobal(loqueRetorna).get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(loqueRetorna).getTipo())){
                          errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                                  ". \""+loqueRetorna+"\" No es del tipo  del metodo\n";
                      }
