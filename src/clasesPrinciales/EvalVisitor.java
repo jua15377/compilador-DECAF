@@ -244,7 +244,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         Simbolo metodo = laTabla.getaSimbol(nameActualmethot);
         laTabla.saveCurrentState();
         try {
-            if (metodo.getCantParam() != 0 && metodo != null) {
+            if (metodo.getCantParam() != 0) {
                 for (Simbolo s : metodo.getParametros()) {
                     laTabla.addSimbol(s);
                 }
@@ -331,8 +331,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitStatementIF(ProgramParser.StatementIFContext ctx) {
-
-
+        String contenido = ctx.expression().andExpr().getText();
+        //verifica true or false
+        if(contenido.contains("true") || contenido.contains("false")){
+            
+        }
         return super.visitStatementIF(ctx);
     }
 
