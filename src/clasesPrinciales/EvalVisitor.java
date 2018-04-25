@@ -306,6 +306,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
              }
              else{
                  //if  el metodo es void
+
                  if (laTabla.getFromGlobal(nameActualmethot).get(nameActualmethot).getTipoDeRetorno().equals("void")){
                      errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                              ". \""+nameActualmethot+"\" no puede devolver un valor\n";
@@ -331,11 +332,54 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitStatementIF(ProgramParser.StatementIFContext ctx) {
-        String contenido = ctx.expression().andExpr().getText();
-        //verifica true or false
-        if(contenido.contains("true") || contenido.contains("false")){
-            
+        String contenido = ctx.expression().getText();
+        //si contien signo aritmeticos lo rechaza
+        if (contenido.contains("+") ||contenido.contains("-") || contenido.contains("*") || contenido.contains("/")){
+            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                    ".  Expresion no valida, No puede contener operadores aritmeticos\n";
         }
+        else if (contenido.contains("||") || contenido.contains("&&")){
+
+            if (contenido.contains("||")){
+                String[] comparacion = contenido.split("\\|\\|");
+                for (String s : comparacion){
+                    if(s.contains("==")){
+                        String[] operadores = contenido.split("==");
+                        if(laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])){
+                            if(!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") && laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")){
+                                errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                        ".  Alguna de las variables no es de tipo boolen\n";
+                            }
+                        }
+                        else {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                                    ". "+operadores+"no declarados\n";
+                        }
+                    }
+                    else if(s.contains("!=")){
+
+                    }
+                    else if(s.contains(">=")){
+
+                    }
+                    else if(s.contains("<=")){
+
+                    }
+                    else if(s.contains(">")){
+
+                    }
+                    else if(s.contains("<")){
+
+                    }
+                }
+            }
+            else if(contenido.contains("&&")){
+                String[] nuevoContenido = contenido.split("&&");
+            }
+        }
+
+
+
         return super.visitStatementIF(ctx);
     }
 
