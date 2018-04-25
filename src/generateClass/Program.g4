@@ -174,9 +174,7 @@ multdiv_op
 	|	'%'
 	;
 
-powmod_op
-	:	'%'
-	;
+
 	
 rel_op
 	:	'<'
