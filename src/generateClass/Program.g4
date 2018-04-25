@@ -123,8 +123,8 @@ eqExpr
 	;
 
 relationExpr
-	: 	addExpr 			
-	| 	relationExpr rel_op addExpr 	
+	: 	addExpr 			                #relExprAddExpre
+	| 	relationExpr rel_op addExpr 	#relExprRelOp
 	;
 
 

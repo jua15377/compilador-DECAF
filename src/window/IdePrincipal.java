@@ -50,6 +50,11 @@ public class IdePrincipal {
     private JPanel panelImagen;
     private JPanel panelForJtree;
     private JPanel pnl_intermedio;
+    private JScrollPane scroll_cod_intermedio;
+    private JTextArea txt_area_intermedio;
+    private JPanel pnl_cObjeto;
+    private JScrollPane scroll_cod_objeto;
+    private JTextArea txt_area_objeto;
     private String directorio;
 
     public IdePrincipal() {
@@ -227,6 +232,21 @@ public class IdePrincipal {
         panelForJtree = new JPanel();
         TextLineNumber ln = new TextLineNumber(taEditor);
         scr_Editor.setRowHeaderView(ln);
+        //para panel de codigo intermedio
+        scroll_cod_intermedio = new JScrollPane();
+        txt_area_intermedio = new JSmartTextArea();
+        txt_area_intermedio.setEditable(true);
+        txt_area_intermedio.setFocusable(true);
+        TextLineNumber ln2 = new TextLineNumber(txt_area_intermedio);
+        scroll_cod_intermedio.setRowHeaderView(ln2);
+        //para panel de codigo objeto
+        scroll_cod_objeto = new JScrollPane();
+        txt_area_objeto = new JSmartTextArea();
+        txt_area_objeto.setEditable(true);
+        txt_area_objeto.setFocusable(true);
+        TextLineNumber ln3 = new TextLineNumber(txt_area_objeto);
+        scroll_cod_objeto.setRowHeaderView(ln3);
+
     }
 
     // tomada del libro definitive guide for antlv4  capitulo 9

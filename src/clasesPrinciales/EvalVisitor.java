@@ -309,10 +309,6 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                  if (laTabla.getFromGlobal(nameActualmethot).get(nameActualmethot).getTipoDeRetorno().equals("void")){
                      errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                              ". \""+nameActualmethot+"\" no puede devolver un valor\n";
-                     /*if(!laTabla.getTabla().get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(nameActualmethot).getTipoDeRetorno())){
-                         errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                                 ". \""+nameActualmethot+"\" no puede devolver un valor\n";
-                     }*/
                  }
 
                  // verifica que lo que retorna sea variable
@@ -337,49 +333,208 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                     ".  Expresion no valida, No puede contener operadores aritmeticos\n";
         }
-        else if (contenido.contains("||") || contenido.contains("&&")){
+        else {
 
-            if (contenido.contains("||")){
-                String[] comparacion = contenido.split("\\|\\|");
-                for (String s : comparacion){
-                    if(s.contains("==")){
-                        String[] operadores = contenido.split("==");
-                        if(laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])){
-                            if(!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") && laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")){
-                                errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                                        ".  Alguna de las variables no es de tipo boolen\n";
-                            }
+            String[] comparacion;
+            comparacion = contenido.split("&&|\\|\\|");
+
+            for (String s : comparacion) {
+                if (s.contains("==")) {
+                    String[] operadores = s.split("==");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
                         }
-                        else {
-                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                                    ". "+operadores+"no declarados\n";
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+                } else if (s.contains("!=")) {
+                    String[] operadores = s.split("!=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
                         }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
-                    else if(s.contains("!=")){
 
+                } else if (s.contains(">=")) {
+                    String[] operadores = s.split(">=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
-                    else if(s.contains(">=")){
 
+                } else if (s.contains("<=")) {
+                    String[] operadores = s.split("<=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
-                    else if(s.contains("<=")){
-
+                } else if (s.contains(">")) {
+                    String[] operadores = s.split(">");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
-                    else if(s.contains(">")){
 
+                } else if (s.contains("<")) {
+                    String[] operadores = s.split("<");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
-                    else if(s.contains("<")){
 
+                } else {
+                    if (laTabla.getTabla().containsKey(comparacion[0])) {
+                        if (!laTabla.getTabla().get(comparacion[0]).getTipo().equals("boolean") ) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".\" " + comparacion[0] + "\" No es de tipo boolean\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". \"" + comparacion[0] + "\" no declarado\n";
                     }
                 }
+
             }
-            else if(contenido.contains("&&")){
-                String[] nuevoContenido = contenido.split("&&");
+
+        }
+
+        return super.visitStatementIF(ctx);
+    }
+// va a ser igual que el while
+    @Override
+    public String visitStatementWhile(ProgramParser.StatementWhileContext ctx) {
+        String contenido = ctx.expression().getText();
+
+        if (contenido.contains("+") ||contenido.contains("-") || contenido.contains("*") || contenido.contains("/")){
+            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
+                    ".  Expresion no valida, No puede contener operadores aritmeticos\n";
+        }
+        else {
+
+            String[] comparacion;
+            comparacion = contenido.split("&&|\\|\\|");
+
+            for (String s : comparacion) {
+                if (s.contains("==")) {
+                    String[] operadores = s.split("==");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+                } else if (s.contains("!=")) {
+                    String[] operadores = s.split("!=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+
+                } else if (s.contains(">=")) {
+                    String[] operadores = s.split(">=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+
+                } else if (s.contains("<=")) {
+                    String[] operadores = s.split("<=");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+                } else if (s.contains(">")) {
+                    String[] operadores = s.split(">");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+
+                } else if (s.contains("<")) {
+                    String[] operadores = s.split("<");
+                    if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
+                        if (!laTabla.getTabla().get(operadores[0]).getTipo().equals("boolean") || !laTabla.getTabla().get(operadores[1]).getTipo().equals("boolean")) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".  Alguna de las variables no es de tipo boolen\n";
+                        }
+                    } else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                    }
+
+                } else {
+
+                    if (laTabla.getTabla().containsKey(comparacion[0])) {
+                        if (!laTabla.getTabla().get(comparacion[0]).getTipo().equals("boolean") ) {
+                            errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                    ".\" " + comparacion[0] + "\" No es de tipo boolean\n";
+                        }
+                    }
+                    else if(comparacion[0].equals("true") || comparacion[0].equals("false")){
+                        //its okay
+                    }
+                    else {
+                        errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                ". \"" + comparacion[0] + "\" no declarado\n";
+                    }
+                }
+
             }
+
         }
 
 
-
-        return super.visitStatementIF(ctx);
+        return super.visitStatementWhile(ctx);
     }
 
     public void haveMain() {
