@@ -9,6 +9,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     private int ambitoActual = 0;
     private  TablaDeSimbolos laTabla = new TablaDeSimbolos();
     private String nameActualmethot  =  "";
+    public ArrayList<String> codigoIntermedio = new ArrayList<>();
 
     @Override
     public String visitProgDeclarattion(ProgramParser.ProgDeclarattionContext ctx) {
@@ -43,8 +44,10 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitSimpleVarTyoe(ProgramParser.SimpleVarTyoeContext ctx) {
+
         String tipo = ctx.varType().getText();
         String nombre = ctx.ID().getText();
+        System.out.println("soy variable " + nombre);
         Simbolo s = new Simbolo(nombre,tipo,ambitoActual);
         //verifica que no se haya declarado con antelacion la variable con el mismo nombre
         if(laTabla.getTabla().containsKey(s.getNombre())){
@@ -65,7 +68,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitMethodDecl(ProgramParser.MethodDeclContext ctx) {
-
+        System.out.println("soy metodo inicio");
         String returnValue = ctx.methodType().getText();
         String id = ctx.ID().getText();
         int canParam = ctx.parameter().size();
@@ -117,7 +120,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             }
 
         }
-
+        System.out.println("soy metod final");
         return super.visitMethodDecl(ctx);
     }
 
