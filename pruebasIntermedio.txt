@@ -1,0 +1,6 @@
+class program{
+	void main(){}
+	int carro(){}
+	boolean soyBoolean(){}
+	char otroMetodo(){}
+}

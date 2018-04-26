@@ -68,7 +68,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
     @Override
     public String visitMethodDecl(ProgramParser.MethodDeclContext ctx) {
-        System.out.println("soy metodo inicio");
+
         String returnValue = ctx.methodType().getText();
         String id = ctx.ID().getText();
         int canParam = ctx.parameter().size();
@@ -96,6 +96,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                 }
                 else {
                     laTabla.addSimbol(s);
+                    codigoIntermedio.add("label_"+id+":");
                     nameActualmethot = s.getNombre();
                 }
             }
@@ -116,6 +117,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                     }
                 }
                 laTabla.addSimbol(s);
+                codigoIntermedio.add("label_"+id+":");
                 nameActualmethot = s.getNombre();
             }
 

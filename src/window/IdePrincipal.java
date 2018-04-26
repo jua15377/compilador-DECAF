@@ -17,11 +17,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-
+import java.util.*;
 
 
 import org.antlr.v4.runtime.BaseErrorListener;
@@ -150,6 +146,12 @@ public class IdePrincipal {
                 if(!textoDeErrores.equals("")) {
                     txtErrores.setText(textoDeErrores);
                 }
+                ArrayList<String> elCodigoGenerado  = eval.codigoIntermedio;
+                String textoParaIntermedio = "";
+                for (String s: elCodigoGenerado){
+                    textoParaIntermedio += s +"\n";
+                }
+                txt_area_intermedio.setText(textoParaIntermedio);
             }
         });
 
