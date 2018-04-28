@@ -460,15 +460,29 @@ public interface ProgramListener extends ParseTreeListener {
 	 */
 	void exitEqExprEqOp(ProgramParser.EqExprEqOpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ProgramParser#relationExpr}.
+	 * Enter a parse tree produced by the {@code relExprRelOp}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterRelationExpr(ProgramParser.RelationExprContext ctx);
+	void enterRelExprRelOp(ProgramParser.RelExprRelOpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ProgramParser#relationExpr}.
+	 * Exit a parse tree produced by the {@code relExprRelOp}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitRelationExpr(ProgramParser.RelationExprContext ctx);
+	void exitRelExprRelOp(ProgramParser.RelExprRelOpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code relExprAddExpre}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelExprAddExpre(ProgramParser.RelExprAddExpreContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code relExprAddExpre}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelExprAddExpre(ProgramParser.RelExprAddExpreContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code addExprMultExpr}
 	 * labeled alternative in {@link ProgramParser#addExpr}.
@@ -617,16 +631,6 @@ public interface ProgramListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultdiv_op(ProgramParser.Multdiv_opContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ProgramParser#powmod_op}.
-	 * @param ctx the parse tree
-	 */
-	void enterPowmod_op(ProgramParser.Powmod_opContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ProgramParser#powmod_op}.
-	 * @param ctx the parse tree
-	 */
-	void exitPowmod_op(ProgramParser.Powmod_opContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ProgramParser#rel_op}.
 	 * @param ctx the parse tree

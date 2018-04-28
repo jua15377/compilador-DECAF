@@ -2,6 +2,7 @@ package clasesPrinciales;
 import generateClass.*;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 
 public class EvalVisitor extends ProgramBaseVisitor<String>  {
@@ -126,6 +127,40 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         return super.visitMethodDecl(ctx);
     }
 
+
+    @Override
+    public String visitMethodCalldecl(ProgramParser.MethodCalldeclContext ctx) {
+        String id = ctx.ID().getText();
+        int cantParam = ctx.arg().size();
+        if(!laTabla.existInGlobal(id)){
+            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+
+                    ctx.getStart().getCharPositionInLine()+ ". \""+ctx.ID()+"\"No se ha declarado este metodo.\n";
+        }
+        else {
+            Hashtable<String, Simbolo> tablatemp = laTabla.getFromGlobal(id);
+            if(tablatemp.get(id).getCantParam() == cantParam){
+//                for(int i=0;i<cantParam;i++){
+//                    String parametro = visit(ctx.arg(i));
+//                    String[] partes =  parametro.split("-");
+//                    String pType = partes[0];
+//                    String pId = partes[1];
+//                    if(!pType.equals(tablatemp.get(id).getParametros().get(i))){
+//                        errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+
+//                                ctx.getStart().getCharPositionInLine()+ ". \""+ctx.ID()+"\" El parametro "+pId+" es de tipo incorrecto en llamada.\n";
+//
+//                    }
+//                }
+            }
+            //la cantidad de paramtros no es igual.
+            else {
+                errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+
+                        ctx.getStart().getCharPositionInLine()+ ". \""+ctx.ID()+"\" Esperaba "+tablatemp.get(id).getCantParam()+" parametros, encontro"+cantParam+" .\n";
+            }
+        }
+
+        return super.visitMethodCalldecl(ctx);
+    }
+
     /**
      *visita para la creacion de una variable de tipo array
      * @param ctx
@@ -167,13 +202,19 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                     //intenta convertir para determinar el tipo, si lo logra lo asigna.
                     String tipo = laTabla.getTabla().get(id).getTipo();
                     if(tipo.equals("int")){
-                        try {
-                            int i = Integer.parseInt(valor);
-                            laTabla.getTabla().get(id).setValor(valor);
+                        //si es una llamada a metodo
+                        if(valor.contains("(") && valor.contains(")")){
+
                         }
-                        catch (Exception e){
-                            errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
-                                    ". \""+ctx.location().getText()+"\"Es de tipo int\n";
+                        // si es varible normal
+                        else {
+                            try {
+                                int i = Integer.parseInt(valor);
+                                laTabla.getTabla().get(id).setValor(valor);
+                            } catch (Exception e) {
+                                errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
+                                        ". \"" + ctx.location().getText() + "\"Es de tipo int\n";
+                            }
                         }
                     }
                     else if(tipo.equals("boolean")){
@@ -319,7 +360,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                  // verifica que lo que retorna sea variable
                  else if (laTabla.getTabla().get(loqueRetorna).isVariable()){
                      // verifica que el tipo del metodo declarado sea igual al tipo de la varible
-                     if(!laTabla.getFromGlobal(loqueRetorna).get(loqueRetorna).getTipo().equals(laTabla.getTabla().get(loqueRetorna).getTipo())){
+                     if(!laTabla.getFromGlobal(nameActualmethot).get(nameActualmethot).getTipoDeRetorno().equals(laTabla.getTabla().get(loqueRetorna).getTipo())){
                          errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+
                                  ". \""+loqueRetorna+"\" No es del tipo  del metodo\n";
                      }
@@ -328,6 +369,21 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
              }
          }
         return super.visitStatementReturn(ctx);
+    }
+
+    @Override
+    public String visitAddExprMinusPlusOp(ProgramParser.AddExprMinusPlusOpContext ctx) {
+        String op1 = ctx.addExpr().getText();
+        String op2 = ctx.multExpr().getText();
+        return super.visitAddExprMinusPlusOp(ctx);
+    }
+
+    @Override
+    public String visitMultExprMultDivOp(ProgramParser.MultExprMultDivOpContext ctx) {
+        String op1 = ctx.multExpr().getText();
+        String op2 = ctx.unaryExpr().getText();
+
+        return super.visitMultExprMultDivOp(ctx);
     }
 
     @Override

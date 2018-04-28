@@ -39,7 +39,7 @@ public class TablaDeSimbolos {
     public boolean existInGlobal(String key){
         for(Hashtable<String ,Simbolo> tablaiterada : stack){
             if(tablaiterada.containsKey(key)){
-                if(tablaiterada.get(key).getAmbito() == 0 && tablaiterada.get(key).isVariable()) {
+                if(tablaiterada.get(key).getAmbito() == 0) {
                     return true;
                 }
             }

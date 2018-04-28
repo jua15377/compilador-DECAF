@@ -227,6 +227,7 @@ public class IdePrincipal {
         taEditor = new JSmartTextArea();
         taEditor.setEditable(true);
         taEditor.setFocusable(true);
+        taEditor.setFont(taEditor.getFont().deriveFont(24f));
         scr_Editor.add(taEditor);
         txtErrores = new JTextArea();
         txtErrores.setEditable(false);

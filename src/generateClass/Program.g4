@@ -156,7 +156,7 @@ value
 
 	
 methodCall
-	:	ID '(' (arg (',' arg)*)? ')' #methodCalldecl
+	:	ID '(' (arg |( arg (',' arg)*))? ')'#methodCalldecl
 	;
 	
 arg

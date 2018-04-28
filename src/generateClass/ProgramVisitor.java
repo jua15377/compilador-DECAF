@@ -275,11 +275,19 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEqExprEqOp(ProgramParser.EqExprEqOpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#relationExpr}.
+	 * Visit a parse tree produced by the {@code relExprRelOp}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRelationExpr(ProgramParser.RelationExprContext ctx);
+	T visitRelExprRelOp(ProgramParser.RelExprRelOpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relExprAddExpre}
+	 * labeled alternative in {@link ProgramParser#relationExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelExprAddExpre(ProgramParser.RelExprAddExpreContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code addExprMultExpr}
 	 * labeled alternative in {@link ProgramParser#addExpr}.
@@ -367,12 +375,6 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMultdiv_op(ProgramParser.Multdiv_opContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link ProgramParser#powmod_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPowmod_op(ProgramParser.Powmod_opContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ProgramParser#rel_op}.
 	 * @param ctx the parse tree
