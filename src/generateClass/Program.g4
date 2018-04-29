@@ -193,9 +193,9 @@ cond_op_and: '&&';
 
 
 literal
-	:	int_literal
-	|	char_literal
-	|	boolean_literal
+	:	int_literal     #literalInt
+	|	char_literal    #literalchar
+	|	boolean_literal #literalboolean
 	;
 	
 int_literal

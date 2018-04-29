@@ -11,6 +11,16 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     private  TablaDeSimbolos laTabla = new TablaDeSimbolos();
     private String nameActualmethot  =  "";
     public ArrayList<String> codigoIntermedio = new ArrayList<>();
+    //variable de codigo intermedio
+    int memory = 0;
+    int offset;
+    int ifCounts;
+    int whileCounts;
+    public int contTemps = 0;
+    String lastTemp = "t0";
+    String intCode = "";
+
+
 
     @Override
     public String visitProgDeclarattion(ProgramParser.ProgDeclarattionContext ctx) {
@@ -20,21 +30,26 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     @Override
     public String visitDeclarationStruct(ProgramParser.DeclarationStructContext ctx) {
         //se obtiene los valores de la struct
+        int sizeStruct = 0;
         String id = ctx.ID().getText();
         ArrayList<Simbolo> contendio = new ArrayList<>();
         //se verifica si el estruc tiene contendio
         int cantAtributos = ctx.varDeclaration().size();
         if (cantAtributos>0){
             for (int i = 0; i<cantAtributos; i++) {
-                //se obtiene el tipo y el valor de los
+                //se obtiene el tipo y el nombre de los
                 String tipo = ctx.varDeclaration(i).getChild(0).getText();
                 String name = ctx.varDeclaration(i).getChild(1).getText();
                 Simbolo s = new Simbolo(name,tipo);
+                s.setSizeOnMem(sizeStruct);
+                sizeStruct++;
                 contendio.add(s);
             }
         }
         if(!laTabla.getTabla().containsKey(id)) {
-            laTabla.addSimbol(new Simbolo(id, contendio));
+            Simbolo s = new Simbolo(id, contendio);
+            s.setSizeOnMem(sizeStruct);
+            laTabla.addSimbol(s);
         }
         else {
             errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+ ctx.getStart().getCharPositionInLine()+ ". Ya existe un: \""+ctx.ID().getText()+"\"\n";
@@ -50,6 +65,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         String nombre = ctx.ID().getText();
         System.out.println("soy variable " + nombre);
         Simbolo s = new Simbolo(nombre,tipo,ambitoActual);
+        s.setSizeOnMem(4);
         //verifica que no se haya declarado con antelacion la variable con el mismo nombre
         if(laTabla.getTabla().containsKey(s.getNombre())){
             //si tuviese el mismo ambito
@@ -123,7 +139,6 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
             }
 
         }
-        System.out.println("soy metod final");
         return super.visitMethodDecl(ctx);
     }
 
@@ -372,18 +387,96 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     }
 
     @Override
-    public String visitAddExprMinusPlusOp(ProgramParser.AddExprMinusPlusOpContext ctx) {
-        String op1 = ctx.addExpr().getText();
-        String op2 = ctx.multExpr().getText();
-        return super.visitAddExprMinusPlusOp(ctx);
+    public String visitMultExprMultDivOp(ProgramParser.MultExprMultDivOpContext ctx) {
+
+        String multxp = visit(ctx.multExpr());
+        String[] parts1 = multxp.split(", ");
+        String op2 = parts1[parts1.length-1];
+
+        visit(ctx.unaryExpr());
+        //String[] parts = unario.split(", ");
+        String op1= ctx.unaryExpr().getText();
+        contTemps++;
+        String tmp= "t"+contTemps;
+        String operador = ctx.multdiv_op().getText();
+        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+
+        codigoIntermedio.add(s);
+        return visitChildren(ctx)+", "+ tmp;
     }
 
     @Override
-    public String visitMultExprMultDivOp(ProgramParser.MultExprMultDivOpContext ctx) {
-        String op1 = ctx.multExpr().getText();
-        String op2 = ctx.unaryExpr().getText();
+    public String visitAddExprMinusPlusOp(ProgramParser.AddExprMinusPlusOpContext ctx) {
+        String addEx = visit(ctx.addExpr());
+        String[] parts1 = addEx.split(", ");
+        String op2 = parts1[parts1.length-1];
 
-        return super.visitMultExprMultDivOp(ctx);
+        String multEx = visit(ctx.multExpr());
+        String[] parts = multEx.split(", ");
+        String op1 = parts[parts.length-1];
+        contTemps++;
+
+        String tmp= "t"+contTemps;
+        String operador = ctx.minusplus_op().getText();
+        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+
+        codigoIntermedio.add(s);
+        return visitChildren(ctx)+", "+tmp;
+    }
+
+//    @Override
+//    public String visitEqExprEqOp(ProgramParser.EqExprEqOpContext ctx) {
+//
+//
+//        String relationExprType = visit(ctx.relationExpr());
+//        String[] parts1 = relationExprType.split (", ");
+//        String op2 = parts1[parts1.length-1];
+//
+//        String eqExprType = visit(ctx.eqExpr());
+//        String[] parts = eqExprType.split (", ");
+//        String op1 = parts[parts.length-1];
+//
+//        contTemps ++;
+//        String tmp= "t"+contTemps;
+//        String operador = ctx.eq_op().getText();
+//        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+//
+//        codigoIntermedio.add(s);
+//        return "boolean"+", "+tmp;
+//    }
+
+//    @Override
+//    public String visitRelExprRelOp(ProgramParser.RelExprRelOpContext ctx) {
+//        String addexprtyoe = visit(ctx.addExpr());
+//        String[] parts1 = addexprtyoe.split (", ");
+//        String op2 = parts1[parts1.length-1];
+//
+//        String relexptype = visit(ctx.relationExpr());
+//        String[] parts = relexptype.split (", ");
+//        String op1 = parts[parts.length-1];
+//
+//        contTemps ++;
+//        String tmp= "t"+contTemps;
+//        String operador = ctx.rel_op().getText();
+//        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+//
+//        codigoIntermedio.add(s);
+//        return "boolean"+", "+tmp;
+//    }
+
+    @Override
+    public String visitLiteralboolean(ProgramParser.LiteralbooleanContext ctx) {
+        return "boolean, "+ctx.boolean_literal().getText();
+    }
+
+    @Override
+    public String visitLiteralInt(ProgramParser.LiteralIntContext ctx) {
+        return "int, "+ctx.int_literal().getText();
+    }
+
+    @Override
+    public String visitLiteralchar(ProgramParser.LiteralcharContext ctx) {
+        return "char, "+ctx.char_literal().getText();
     }
 
     @Override
@@ -411,6 +504,10 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false"+ifCounts);
+                    ifCounts ++;
+
                 } else if (s.contains("!=")) {
                     String[] operadores = s.split("!=");
                     if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {

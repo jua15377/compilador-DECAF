@@ -2532,22 +2532,46 @@ public class ProgramParser extends Parser {
 	}
 
 	public static class LiteralContext extends ParserRuleContext {
-		public Int_literalContext int_literal() {
-			return getRuleContext(Int_literalContext.class,0);
-		}
-		public Char_literalContext char_literal() {
-			return getRuleContext(Char_literalContext.class,0);
-		}
-		public Boolean_literalContext boolean_literal() {
-			return getRuleContext(Boolean_literalContext.class,0);
-		}
 		public LiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_literal; }
+	 
+		public LiteralContext() { }
+		public void copyFrom(LiteralContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class LiteralcharContext extends LiteralContext {
+		public Char_literalContext char_literal() {
+			return getRuleContext(Char_literalContext.class,0);
+		}
+		public LiteralcharContext(LiteralContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLiteral(this);
+			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLiteralchar(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class LiteralIntContext extends LiteralContext {
+		public Int_literalContext int_literal() {
+			return getRuleContext(Int_literalContext.class,0);
+		}
+		public LiteralIntContext(LiteralContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLiteralInt(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class LiteralbooleanContext extends LiteralContext {
+		public Boolean_literalContext boolean_literal() {
+			return getRuleContext(Boolean_literalContext.class,0);
+		}
+		public LiteralbooleanContext(LiteralContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ProgramVisitor ) return ((ProgramVisitor<? extends T>)visitor).visitLiteralboolean(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2560,6 +2584,7 @@ public class ProgramParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NUM:
+				_localctx = new LiteralIntContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(333);
@@ -2567,6 +2592,7 @@ public class ProgramParser extends Parser {
 				}
 				break;
 			case Char:
+				_localctx = new LiteralcharContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(334);
@@ -2575,6 +2601,7 @@ public class ProgramParser extends Parser {
 				break;
 			case TRUE:
 			case FALSE:
+				_localctx = new LiteralbooleanContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(335);

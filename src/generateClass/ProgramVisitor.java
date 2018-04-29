@@ -400,11 +400,26 @@ public interface ProgramVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCond_op_and(ProgramParser.Cond_op_andContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ProgramParser#literal}.
+	 * Visit a parse tree produced by the {@code literalInt}
+	 * labeled alternative in {@link ProgramParser#literal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLiteral(ProgramParser.LiteralContext ctx);
+	T visitLiteralInt(ProgramParser.LiteralIntContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code literalchar}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteralchar(ProgramParser.LiteralcharContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code literalboolean}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteralboolean(ProgramParser.LiteralbooleanContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ProgramParser#int_literal}.
 	 * @param ctx the parse tree

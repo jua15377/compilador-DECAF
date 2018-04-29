@@ -672,15 +672,41 @@ public interface ProgramListener extends ParseTreeListener {
 	 */
 	void exitCond_op_and(ProgramParser.Cond_op_andContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ProgramParser#literal}.
+	 * Enter a parse tree produced by the {@code literalInt}
+	 * labeled alternative in {@link ProgramParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void enterLiteral(ProgramParser.LiteralContext ctx);
+	void enterLiteralInt(ProgramParser.LiteralIntContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ProgramParser#literal}.
+	 * Exit a parse tree produced by the {@code literalInt}
+	 * labeled alternative in {@link ProgramParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void exitLiteral(ProgramParser.LiteralContext ctx);
+	void exitLiteralInt(ProgramParser.LiteralIntContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code literalchar}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteralchar(ProgramParser.LiteralcharContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code literalchar}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteralchar(ProgramParser.LiteralcharContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code literalboolean}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteralboolean(ProgramParser.LiteralbooleanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code literalboolean}
+	 * labeled alternative in {@link ProgramParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteralboolean(ProgramParser.LiteralbooleanContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ProgramParser#int_literal}.
 	 * @param ctx the parse tree

@@ -131,4 +131,8 @@ public class Simbolo {
     public boolean isArray() {
         return isArray;
     }
+
+    public void setSizeOnMem(int sizeOnMem) {
+        this.sizeOnMem = sizeOnMem;
+    }
 }

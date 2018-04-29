@@ -700,13 +700,37 @@ public class ProgramBaseListener implements ProgramListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLiteral(ProgramParser.LiteralContext ctx) { }
+	@Override public void enterLiteralInt(ProgramParser.LiteralIntContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLiteral(ProgramParser.LiteralContext ctx) { }
+	@Override public void exitLiteralInt(ProgramParser.LiteralIntContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLiteralchar(ProgramParser.LiteralcharContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLiteralchar(ProgramParser.LiteralcharContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLiteralboolean(ProgramParser.LiteralbooleanContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLiteralboolean(ProgramParser.LiteralbooleanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
