@@ -3,6 +3,7 @@ import generateClass.*;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Stack;
 
 
 public class EvalVisitor extends ProgramBaseVisitor<String>  {
@@ -14,11 +15,13 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     //variable de codigo intermedio
     int memory = 0;
     int offset;
-    int ifCounts;
+    private int ifCounts = 0;
+    private int contElse = 0;
     int whileCounts;
     public int contTemps = 0;
     String lastTemp = "t0";
     String intCode = "";
+    private Stack<String> stack_de_id = new Stack<>();
 
 
 
@@ -316,8 +319,21 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         }
         visitChildren(ctx);
         laTabla.retunToOlderState();
+        while (!stack_de_id.isEmpty()){
+            codigoIntermedio.add(stack_de_id.pop());
+        }
         ambitoActual --;
         return null;
+    }
+
+    @Override
+    public String visitStatemElse(ProgramParser.StatemElseContext ctx) {
+        while (!stack_de_id.isEmpty()){
+            codigoIntermedio.add(stack_de_id.pop());
+        }
+        codigoIntermedio.add("label_else_"+contElse);
+        contElse++;
+        return visitChildren(ctx);
     }
 
     @Override
@@ -399,7 +415,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         contTemps++;
         String tmp= "t"+contTemps;
         String operador = ctx.multdiv_op().getText();
-        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+        String s = tmp +" = "+ op1 +" "+ operador +" "+op2;
 
         codigoIntermedio.add(s);
         return visitChildren(ctx)+", "+ tmp;
@@ -418,7 +434,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
 
         String tmp= "t"+contTemps;
         String operador = ctx.minusplus_op().getText();
-        String s = lastTemp +" = "+ op1 +" "+ operador +" "+op2;
+        String s = tmp +" = "+ op1 +" "+ operador +" "+op2;
 
         codigoIntermedio.add(s);
         return visitChildren(ctx)+", "+tmp;
@@ -502,10 +518,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         }
                     } else {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
-                                ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
+                                ". " + operadores[0] + " o " + operadores[1] + " no declarados\n";
                     }
                     codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
-                    codigoIntermedio.add("goto label_false"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
                     ifCounts ++;
 
                 } else if (s.contains("!=")) {
