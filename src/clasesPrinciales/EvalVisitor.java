@@ -17,7 +17,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     int offset;
     private int ifCounts = 0;
     private int contElse = 0;
-    int whileCounts;
+    int whileCounts  = 0;
     public int contTemps = 0;
     String lastTemp = "t0";
     String intCode = "";
@@ -150,6 +150,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
     public String visitMethodCalldecl(ProgramParser.MethodCalldeclContext ctx) {
         String id = ctx.ID().getText();
         int cantParam = ctx.arg().size();
+        for(int i=0;i<cantParam;i++){
+            codigoIntermedio.add("param "+ctx.arg(i).getText() );
+        }
+        codigoIntermedio.add("call "+id);
+
         if(!laTabla.existInGlobal(id)){
             errorsMsg += "Error en linea:" + ctx.getStart().getLine()+", "+
                     ctx.getStart().getCharPositionInLine()+ ". \""+ctx.ID()+"\"No se ha declarado este metodo.\n";
@@ -214,6 +219,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
         if(ctx.location().getChildCount() == 1){
             String id = ctx.location().getText();
             String valor = ctx.expression().getText();
+            codigoIntermedio.add(id +" = " +valor);
             //verificar que exista el simbolo en la tabla actual, y sea variables
             if(laTabla.getTabla().containsKey(id)){
                 if(laTabla.getTabla().get(id).isVariable()) {
@@ -522,6 +528,7 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                     }
                     codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
                     codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
                     stack_de_id.push("label_false_"+ifCounts);
                     ifCounts ++;
 
@@ -536,6 +543,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
 
                 } else if (s.contains(">=")) {
                     String[] operadores = s.split(">=");
@@ -548,6 +560,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
 
                 } else if (s.contains("<=")) {
                     String[] operadores = s.split("<=");
@@ -560,6 +577,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
                 } else if (s.contains(">")) {
                     String[] operadores = s.split(">");
                     if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
@@ -572,6 +594,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
 
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
                 } else if (s.contains("<")) {
                     String[] operadores = s.split("<");
                     if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
@@ -583,6 +610,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
 
                 } else {
                     if (laTabla.getTabla().containsKey(comparacion[0])) {
@@ -594,6 +626,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". \"" + comparacion[0] + "\" no declarado\n";
                     }
+                    codigoIntermedio.add("if "+s+" goto label_true"+ifCounts);
+                    codigoIntermedio.add("goto label_false_"+ifCounts);
+                    codigoIntermedio.add("label_true_"+ifCounts);
+                    stack_de_id.push("label_false_"+ifCounts);
+                    ifCounts ++;
                 }
 
             }
@@ -628,6 +665,12 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
+
                 } else if (s.contains("!=")) {
                     String[] operadores = s.split("!=");
                     if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
@@ -639,6 +682,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
 
                 } else if (s.contains(">=")) {
                     String[] operadores = s.split(">=");
@@ -651,6 +699,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
 
                 } else if (s.contains("<=")) {
                     String[] operadores = s.split("<=");
@@ -663,6 +716,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
                 } else if (s.contains(">")) {
                     String[] operadores = s.split(">");
                     if (laTabla.getTabla().containsKey(operadores[0]) && laTabla.getTabla().containsKey(operadores[1])) {
@@ -674,6 +732,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
 
                 } else if (s.contains("<")) {
                     String[] operadores = s.split("<");
@@ -686,6 +749,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". " + operadores[0] + ", " + operadores[1] + " no declarados\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
 
                 } else {
 
@@ -702,6 +770,11 @@ public class EvalVisitor extends ProgramBaseVisitor<String>  {
                         errorsMsg += "Error en linea:" + ctx.getStart().getLine() + ", " + ctx.getStart().getCharPositionInLine() +
                                 ". \"" + comparacion[0] + "\" no declarado\n";
                     }
+                    codigoIntermedio.add("while "+s+" goto label_while_true"+whileCounts);
+                    codigoIntermedio.add("goto label_while_false_"+whileCounts);
+                    codigoIntermedio.add("label_while_true_"+whileCounts);
+                    stack_de_id.push("label_while_false_"+whileCounts);
+                    whileCounts ++;
                 }
 
             }

@@ -1,0 +1,23 @@
+class p {
+	int funcion(int a, int b){
+		
+	}
+	void main(){
+		boolean joice;
+		joice = true;
+		if(true){
+		int a;
+		a = 5+4*2;
+		}
+		else{
+			int a;
+			a = 8;
+		}
+		while(joice){
+			funcion(5,3);
+		}
+	}
+
+}
+	
+
