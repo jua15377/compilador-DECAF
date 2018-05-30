@@ -3,8 +3,8 @@ class p {
 		
 	}
 	void main(){
-		boolean joice;
-		joice = true;
+		boolean var;
+		var = true;
 		if(true){
 		int a;
 		a = 5+4*2;
@@ -13,11 +13,12 @@ class p {
 			int a;
 			a = 8;
 		}
-		while(joice){
+		while(var){
 			funcion(5,3);
 		}
 	}
 
 }
 	
+
 
