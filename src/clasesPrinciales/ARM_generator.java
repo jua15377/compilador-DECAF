@@ -53,5 +53,89 @@ public class ARM_generator {
 
     }
 
+    public void intruction_traslator(){
+        String outputemp = "";
+        String lasUsedReg = "";
+        output+= head;
+        for (String instruccion: intrucciones){
+            if (instruccion.contains("main")){
+                System.out.println("tiene main");
+            }
+            else if(instruccion.contains("+")){
+                String result;
+                instruccion = instruccion.replace("=", ",");
+                instruccion = instruccion.replace("+", ",");
+                String newInstruccion[] = instruccion.split(",");
+                if(newInstruccion[0].contains("t")){
+                    result =  newInstruccion[0].replace("t", "R");
+                    lasUsedReg = result;
+                    outputemp += "\n\tMOV R3,#"+ newInstruccion[1] +"\n";
+                    outputemp += "\tMOV R4,#"+ newInstruccion[2] +"\n";
+                    outputemp += "\tADD "+result+", R3, R4\n";
+                }
+                else{
+                    //carga a memoria
+                }
+            }
+            else if(instruccion.contains("-")){
+                String result;
+                instruccion = instruccion.replace("=", ",");
+                instruccion = instruccion.replace("-", ",");
+                String newInstruccion[] = instruccion.split(",");
+                if(newInstruccion[0].contains("t")){
+                    result =  newInstruccion[0].replace("t", "R");
+                    lasUsedReg = result;
+                    outputemp += "\n\tMOV R3,#"+ newInstruccion[1] +"\n";
+                    outputemp += "\tMOV R4,#"+ newInstruccion[2] +"\n";
+                    outputemp += "\tSUB "+result+", R3, R4\n";
+                }
+                else{
+                    //carga a memoria
+                }
+            }
+            else if(instruccion.contains("*")){
+                String result;
+                instruccion = instruccion.replace("=", ",");
+                instruccion = instruccion.replace("*", ",");
+                String newInstruccion[] = instruccion.split(",");
+                if(newInstruccion[0].contains("t")){
+                    result =  newInstruccion[0].replace("t", "R");
+                    lasUsedReg = result;
+                    outputemp += "\n\tMOV R3,#"+ newInstruccion[1] +"\n";
+                    outputemp += "\tMOV R4,#"+ newInstruccion[2] +"\n";
+                    outputemp += "\tMUL "+result+", R3, R4\n";
+                }
+                else{
+                    //carga a memoria
+                }
+            }
 
+            else if(instruccion.contains("if")){
+
+            }
+
+            else if(instruccion.contains("label_")){
+                if(instruccion.contains("true")||instruccion.contains("false")){}
+            }
+            else if(instruccion.contains("call")){
+                 if(instruccion.contains("print")){
+                    outputemp += "\tMOV R1, "+ lasUsedReg + "\n";
+                    outputemp += "\tLDR R0, =formatoDecimal\n";
+                    outputemp += "\tBL printf\n";
+                }
+
+            }
+
+
+
+        }
+
+        output += outputemp;
+        output += program_exit;
+        output += data_Section;
+    }
+
+    public String getOutput() {
+        return output;
+    }
 }
