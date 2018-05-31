@@ -1,5 +1,6 @@
 package window;
 
+import clasesPrinciales.ARM_generator;
 import clasesPrinciales.EvalVisitor;
 import com.sun.deploy.panel.JSmartTextArea;
 import org.antlr.v4.runtime.misc.Utils;
@@ -152,6 +153,11 @@ public class IdePrincipal {
                     textoParaIntermedio += s +"\n";
                 }
                 txt_area_intermedio.setText(textoParaIntermedio);
+                ARM_generator arm_generator = new ARM_generator(elCodigoGenerado);
+                arm_generator.intruction_traslator();
+                txt_area_objeto.setText(arm_generator.getOutput());
+
+
             }
         });
 

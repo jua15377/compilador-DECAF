@@ -22,13 +22,10 @@ int metodo2 (int num1, int num2) {
     numero = 4 + true;
     return true;
 }
-struct felino {
-int patas;
-boolean esGato; 
+
 }
-void main(int num1) {
+void main() {
      char res;
-     res = metodo2(4, 'c');
-     felino.patas = 'c';
 }
  }
+
