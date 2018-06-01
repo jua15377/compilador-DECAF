@@ -32,7 +32,7 @@ public class ARM_generator {
             "\tformatoCaracter:\n" +
             "\t\t.asciz\"%c\"\n" +
             "\tformatoDecimal:\n" +
-            "\t\t.asciz\"%d\"\n" +
+            "\t\t.asciz\"%d\n\"\n" +
             "\tmsj_ingreso: \n" +
             "\t\t.asciz \"Ingrese un valor:\\n\"\n" +
             "\tmsj_resultado: \n" +
@@ -115,6 +115,7 @@ public class ARM_generator {
             }
 
             else if(instruccion.contains("label_")){
+                output  += instruccion;
                 if(instruccion.contains("true")||instruccion.contains("false")){}
             }
             else if(instruccion.contains("call")){
