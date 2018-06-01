@@ -156,6 +156,7 @@ public class IdePrincipal {
                 ARM_generator arm_generator = new ARM_generator(elCodigoGenerado);
                 arm_generator.intruction_traslator();
                 txt_area_objeto.setText(arm_generator.getOutput());
+                arm_generator.generate_file();
 
 
             }

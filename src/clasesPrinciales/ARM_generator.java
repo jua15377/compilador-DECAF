@@ -1,5 +1,7 @@
 package clasesPrinciales;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class ARM_generator {
@@ -31,12 +33,10 @@ public class ARM_generator {
             "\t\t.asciz\"%c\"\n" +
             "\tformatoDecimal:\n" +
             "\t\t.asciz\"%d\"\n" +
-            "\tformatoCaracter:\n" +
-            "\t\t.asciz\"%s\"\n" +
             "\tmsj_ingreso: \n" +
             "\t\t.asciz \"Ingrese un valor:\\n\"\n" +
             "\tmsj_resultado: \n" +
-            "\t\t.asciz \"El resultado es:\\n\"";
+            "\t\t.asciz \"El resultado es:\\n\"\n\n";
     private String print_msj_ingreso= "\tldr r0,=msj_ingreso\n" +
             "\tbl puts";
     private String print_msj_resultado= "\tldr r0,=msj_resultado\n" +
@@ -137,5 +137,28 @@ public class ARM_generator {
 
     public String getOutput() {
         return output;
+    }
+
+    public void generate_file(){
+        FileWriter fichero = null;
+        PrintWriter pw;
+        try
+        {
+            fichero = new FileWriter("out.s");
+            pw = new PrintWriter(fichero);
+            pw.println(getOutput());
+        }
+        catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        finally {
+            try {
+                // asegurarnos que se cierra el fichero.
+                if (null != fichero)
+                    fichero.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }
